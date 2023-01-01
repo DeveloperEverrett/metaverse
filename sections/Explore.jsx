@@ -1,13 +1,15 @@
 import { useState } from 'react';
 
 import { motion } from 'framer-motion';
+
 import styles from '../styles';
+import { exploreWorlds } from '../constants';
 import { staggerContainer } from '../utils/motion';
 import { ExploreCard, TitleText, TypingText } from '../components';
-import { exploreWorlds } from '../constants';
 
 const Explore = () => {
   const [active, setActive] = useState('world-2');
+
   return (
     <section className={`${styles.paddings}`} id="explore">
       <motion.div
@@ -27,8 +29,7 @@ const Explore = () => {
           }
           textStyles="text-center"
         />
-
-        <div className="mt-[50px] lex lg:flex-row flex-col min-h-[70vh] gap-5">
+        <div className="mt-[50px] flex lg:flex-row flex-col min-h-[70vh] gap-5">
           {exploreWorlds.map((world, index) => (
             <ExploreCard
               key={world.id}
@@ -36,7 +37,7 @@ const Explore = () => {
               index={index}
               active={active}
               handleClick={setActive}
-            ></ExploreCard>
+            />
           ))}
         </div>
       </motion.div>
